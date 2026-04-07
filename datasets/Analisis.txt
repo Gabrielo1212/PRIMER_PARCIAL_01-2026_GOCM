@@ -1,0 +1,29 @@
+Descripción del Proceso:
+Para el dataset de Ames Housing, el objetivo fue predecir el precio de venta de las viviendas, el proceso comenzó con la carga del dataset y una limpieza mediante la creación de variables dummy para los datos categóricos y la imputación de valores faltantes usando la mediana, una decisión fue la implementación de la normalización de características, transformando los datos para que tengan media 0 y desviación estándar 1, posteriormente, se añadió una columna de unos para el término de intercepción y se entrenó un modelo de Regresión Lineal Multivariable utilizando el algoritmo de Descenso por el Gradiente
+
+Justificación de Decisiones:
+
+Normalización: 
+Se justificó su uso debido a la gran disparidad de escalas entre variables, sin esto, el gradiente oscilaría violentamente, impidiendo la convergencia
+
+Descenso por el Gradiente: 
+Se optó por una implementación matemática directa numpy para tener control total sobre el hiperparámetro alpha y observar la evolución del costo en cada iteración
+
+Análisis de Resultados: 
+El modelo alcanzó un Costo Final de 211526135.87, al observar la gráfica de convergencia, se evidencia que la curva de costo desciende de forma exponencial y se estabiliza cerca de las 1,000 iteraciones, lo que indica que el alpha seleccionado 0.01 fue óptimo para alcanzar un mínimo local sin sobrepasarlo
+
+2. Proceso de Desarrollo
+
+Descripción del Proceso:
+En el caso del dataset de Credit Approval, se desarrolló un modelo de Regresión Logística para predecir la aprobación o rechazo de créditos. El preprocesamiento incluyó la conversión de etiquetas de texto a valores numéricos mediante factorstatus y el tratamiento de valores perdidos, se implementó la función Sigmoide para mapear las predicciones a un rango de 0, 1 y se utilizó la función de costo de Entropía Cruzada Binaria, el modelo se entrenó con 40,000 iteraciones para asegurar la estabilidad de los pesos θ
+
+Justificación de Decisiones:
+
+Función Sigmoide: 
+Fundamental para transformar una salida lineal en una probabilidad logística, necesaria para un problema de clasificación binaria
+
+División de Datos (75/25): 
+Se aplicó para evaluar el desempeño del modelo con datos que no "conoció" durante el entrenamiento, garantizando así la capacidad de generalización y evitando el overfitting
+
+Análisis de Resultados:
+Se logró una Precisión del 99.13%, lo que sugiere que las variables financieras proporcionadas tienen una correlación casi directa con la aprobación del crédito, la gráfica de convergencia muestra que el costo cae abruptamente en las primeras 5,000 iteraciones y luego entra en una fase de refinamiento asintótico, validando que el modelo ha aprendido los patrones fundamentales del conjunto de datos
